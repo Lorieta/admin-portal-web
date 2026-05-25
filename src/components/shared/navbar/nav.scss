@@ -1,0 +1,151 @@
+@use '../../styles/variables' as variables;
+@use '../../styles/mixins' as mixins;
+
+// ============================================================
+// Navigation Dimensions
+// ============================================================
+$nav-width: 240px;
+$nav-border-radius: 0;
+$nav-item-height: 56px;
+$nav-item-radius: 0;
+$nav-padding-vertical: 24px;
+$nav-padding-horizontal: 24px;
+$nav-icon-size: 24px;
+
+// ============================================================
+// Navigation Typography
+// ============================================================
+$nav-link-size: 16px;
+$nav-font-weight-normal: 500;
+$nav-font-weight-bold: 700;
+
+// ============================================================
+// Navigation Spacing
+// ============================================================
+$nav-icon-gap: 16px;
+$nav-section-gap: 12px;
+
+.navbar {
+  background-color: variables.$nav-bg;
+  width: $nav-width;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  padding: $nav-padding-vertical 0;
+  box-sizing: border-box;
+  border-right: 1px solid #e0e0e0;
+  font-family: var(--font-mulish), sans-serif;
+
+  @include mixins.mobile {
+  }
+}
+
+.navbar_header {
+  padding: 0 $nav-padding-horizontal;
+  margin-bottom: 32px;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar_title {
+  background-color: variables.$nav-active-bg;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: $nav-font-weight-bold;
+  padding: 8px 16px;
+  border-radius: 8px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.navbar_profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px;
+  padding: 0 $nav-padding-horizontal;
+  text-align: center;
+}
+
+.navbar_avatar {
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 12px;
+  border: 2px solid variables.$nav-avatar-border;
+}
+
+.navbar_name {
+  color: #333;
+  font-size: 13px;
+  font-weight: $nav-font-weight-normal;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.navbar_tabs {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  flex: 1;
+}
+
+.navbar_tab {
+  width: 100%;
+}
+
+%nav-item {
+  display: flex;
+  align-items: center;
+  height: $nav-item-height;
+  padding: 0 $nav-padding-horizontal;
+  color: variables.$nav-text-color;
+  text-decoration: none;
+  font-size: $nav-link-size;
+  font-weight: $nav-font-weight-bold;
+  transition: all 0.2s ease;
+  gap: $nav-icon-gap;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+
+  &:hover {
+    background-color: variables.$nav-hover-bg;
+  }
+}
+
+.navbar_link {
+  @extend %nav-item;
+
+  &--active {
+    background-color: variables.$nav-active-bg;
+    color: variables.$nav-active-text;
+
+    &:hover {
+      background-color: variables.$nav-active-bg;
+    }
+  }
+}
+
+.navbar_icon {
+  width: $nav-icon-size;
+  height: $nav-icon-size;
+  flex-shrink: 0;
+}
+
+.navbar_footer {
+  margin-top: auto;
+  padding: 16px 0 0 0;
+}
+
+.navbar_logout {
+  @extend %nav-item;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}

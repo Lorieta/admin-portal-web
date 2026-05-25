@@ -1,0 +1,48 @@
+@use './variables.scss' as *;
+
+@mixin mobile {
+  @media (max-width: 480px) {
+    @content;
+  }
+}
+
+@mixin phablet {
+  @media (max-width: 600px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: 900px) {
+    @content;
+  }
+}
+
+@mixin tablet-lg {
+  @media (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin tablet-sm {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin laptop {
+  @media (max-width: 1440px) {
+    @content;
+  }
+}
+
+@mixin status-badge($bg-color, $text-color) {
+  background-color: $bg-color;
+  color: $text-color;
+}
+
+@mixin status-dot($dot-color) {
+  .dot {
+    background-color: $dot-color;
+  }
+}

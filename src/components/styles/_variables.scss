@@ -1,0 +1,83 @@
+// ============================================================
+// Priority Badge Colors
+// ============================================================
+
+// Critical
+$priority-critical-bg: #fde8e9;
+$priority-critical-text: #d2232a;
+
+// High
+$priority-high-bg: #faeeda;
+$priority-high-text: #ba7517;
+
+// Medium
+$priority-medium-bg: #e1f5ee;
+$priority-medium-text: #0f6e56;
+
+// Low
+$priority-low-bg: #f1efe8;
+$priority-low-text: #5f5e5a;
+
+// ============================================================
+// Status Badge Colors
+// ============================================================
+
+// Open
+$status-open-bg: #f1efe8;
+$status-open-text: #5f5e5a;
+
+// In Progress
+$status-in-progress-bg: #e6f1fb;
+$status-in-progress-text: #185fa5;
+
+// Pending
+$status-pending-bg: #faeeda;
+$status-pending-text: #854f0b;
+
+// Resolved
+$status-resolved-bg: #eaf3de;
+$status-resolved-text: #3b6d11;
+
+// Closed
+$status-closed-bg: #f1efe8;
+$status-closed-text: #1a1a1a;
+
+// ============================================================
+// Internal Notes Colors
+// ============================================================
+
+$internal-note-bg: #faeeda;
+$internal-note-border: #ba7517;
+$internal-note-label-text: #854f0b;
+
+// ============================================================
+// SLA Timer Color Coding
+// ============================================================
+
+$sla-critical: #d2232a; // Less than 1 hour remaining
+$sla-warning: #ba7517; // 1–4 hours remaining
+$sla-safe: #0f6e56; // Safe
+
+// ============================================================
+// Dev Colors
+// ============================================================
+$developer-purple: #000000;
+$developer-light: #eeedfe;
+$page-bg: #E5E5E5; // Updated background color
+
+
+// ============================================================
+// Navigation Colors
+// ============================================================
+
+// Sidebar
+$nav-bg: #fdfdfd; // Main sidebar background
+$nav-text-color: #333333; // Default text/icon color
+$nav-hover-bg: rgba(107, 90, 237, 0.05); // Hover state background
+
+// Active tab
+$nav-active-bg: #000000;; // Active tab background
+$nav-active-text: #ffffff; // Active tab text/icon color
+
+// Avatar
+$nav-avatar-border: rgba(107, 90, 237, 0.2); // Profile image border

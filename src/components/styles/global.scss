@@ -1,0 +1,9 @@
+@use 'variables';
+.main-content {
+  margin-left: 240px;
+
+  min-height: 100vh;
+}
+.main{
+  background-color: variables.$page-bg;
+}
