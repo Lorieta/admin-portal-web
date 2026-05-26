@@ -1,3 +1,4 @@
+import { Card } from '@/components/ui/card';
 import './metric_card.scss';
 
 interface MetricCardProps {
@@ -8,13 +9,13 @@ interface MetricCardProps {
 }
 
 const MetricCard: React.FC<MetricCardProps> = ({ title, value, icon, color }) => (
-  <div className="metric-card" style={{ color }}>
+  <Card className="metric-card">
     <div className="metric-card-title">{title}</div>
     <div className="metric-card-body">
-      <div className="metric-card-value">{value}</div>
+      <div className="metric-card-value" style={{ color }}>{value}</div>
       <div className="metric-card-icon">{icon}</div>
     </div>
-  </div>
+  </Card>
 );
 
 export const OpenTickets = () => <MetricCard title="OPEN TICKETS" value="20" icon={<svg width="26" height="27" viewBox="0 0 26 27" fill="none" xmlns="http://www.w3.org/2000/svg">

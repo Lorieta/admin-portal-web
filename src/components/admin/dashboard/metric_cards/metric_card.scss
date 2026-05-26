@@ -1,14 +1,9 @@
 @use '@/components/styles/variables' as *;
 
 .metric-card {
-  background: white;
   padding: 1.25rem;
-  border-radius: 12px;
-  display: flex;
-  flex-direction: column;
   gap: 0.75rem;
   flex: 1;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 
   .metric-card-title {
     font-size: 0.75rem;
@@ -35,9 +30,4 @@
     justify-content: center;
     opacity: 0.8;
   }
-
-  // Value color modifiers
-  &[style*="color: red"] .metric-card-value { color: #D2232A; }
-  &[style*="color: orange"] .metric-card-value { color: #B88612; }
-  &[style*="color: green"] .metric-card-value { color: #3B6D11; }
 }

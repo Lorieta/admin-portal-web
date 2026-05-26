@@ -9,7 +9,7 @@
   flex-direction: column;
   gap: 1.5rem;
   // Texture background similar to the image
-  background-image: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url('https://www.transparenttextures.com/patterns/asfalt-light.png');
+
 }
 
 .dashboard-title {
@@ -38,10 +38,9 @@
 }
 
 .ticket-preview-container {
-  background: white;
+
   border-radius: 12px;
   padding: 1.25rem;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
 .ticket-preview-header {
