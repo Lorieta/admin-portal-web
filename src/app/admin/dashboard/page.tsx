@@ -24,11 +24,11 @@ export default function Dashboard() {
             {/* Middle Section: Queue Preview and Sidebar */}
             <div className="middle-section">
                 <div className="left-column">
+                    <div className='ticket-preview-header'> 
+                        <h2>Ticket Queue Preview</h2>
+                        <button className='view-btn'>View all</button> 
+                    </div>
                     <div className="ticket-preview-container">
-                        <div className='ticket-preview-header'> 
-                            <h2>Ticket Queue Preview</h2>
-                            <button className='view-btn'>View all</button> 
-                        </div>
                         <div className='table-wrapper'>
                             <TableContainer 
                                 headers={['Date', 'Ticket ID', 'Issue', 'System', 'Client', 'Priority', 'Status']}

@@ -136,7 +136,7 @@ const pieData = [
 
 export function TicketsByPriority() {
   return (
-    <Card variant="blueBorder">
+    <Card className="blueBorder">
       <CardHeader>
         <CardTitle>Tickets by Priority</CardTitle>
       </CardHeader>
@@ -150,7 +150,7 @@ export function TicketsByPriority() {
                 cy="50%"
                 outerRadius={70}
                 dataKey="value"
-                label={({ cx, cy, midAngle, outerRadius, value, name, fill }) => {
+                label={({ cx, cy, midAngle = 0, outerRadius, value, name, fill }) => {
                   const RADIAN = Math.PI / 180;
                   const radius = outerRadius + 20;
                   const x = cx + radius * Math.cos(-midAngle * RADIAN);

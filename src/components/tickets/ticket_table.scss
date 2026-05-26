@@ -4,40 +4,46 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  border-radius: 8px;
-  overflow: hidden;
+  gap: 1rem; // Increased gap to match user preference
 }
 
 .admin-table-header {
   display: grid;
-  padding: 1rem;
-  background: #1a1a1a;
-  color: white;
-  font-weight: 700;
-  font-size: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: $color-dark-header;
+  color: $color-white;
+  font-weight: $font-weight-bold;
+  font-size: 0.7rem;
   align-items: center;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  border-radius: $table-radius; // Rounded header
 
   .header-cell {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.4rem;
     
     .sort-icon {
-      margin-left: 0.25rem;
+      margin-left: 0.2rem;
       flex-shrink: 0;
       opacity: 0.7;
     }
   }
 }
 
+.admin-table-body {
+  background: $color-white;
+  border-radius: $table-radius; // Rounded body
+  overflow: hidden;
+}
+
 .ticket-row {
   display: grid;
   align-items: center;
-  padding: 1rem;
+  padding: 0.65rem 1rem;
   border-bottom: 1px solid #f3f4f6;
-  background: white;
+  background: transparent; // Use body background
   transition: background-color 0.2s;
 
   &:hover {
@@ -53,53 +59,61 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    font-size: 0.8rem;
-    font-weight: 500;
+    font-family: $font-family-base;
+    font-style: normal;
+    line-height: normal;
+  }
+
+  .issue-cell, .system-cell, .client-cell {
+    font-size: 13px;
+    font-weight: $font-weight-medium;
     color: #374151;
   }
 
-  .date-time {
-    display: flex;
-    flex-direction: column;
-    gap: 0.2rem;
-    
-    div:first-child {
-        font-weight: 700;
-        color: #111827;
-    }
+  .date-cell, .ticket-id-cell {
+    color: $color-dark-gray;
+    font-size: 13px;
+    font-weight: $font-weight-bold;
 
     .time {
-      font-size: 0.7rem;
+      font-size: 11px;
       color: #6b7280;
-      font-weight: 600;
+      font-weight: $font-weight-medium;
     }
   }
 
   .priority-badge {
-    padding: 0.35rem 0.75rem;
+    padding: 0.25rem 0.6rem;
     border-radius: 20px;
-    font-size: 0.7rem;
-    font-weight: 700;
+    font-family: $font-family-base;
+    font-size: 12px;
+    font-weight: $font-weight-bold;
+    font-style: normal;
+    line-height: normal;
     display: inline-block;
     text-align: center;
-    min-width: 80px;
+    min-width: 70px;
     text-transform: capitalize;
+    color: $color-near-black;
 
-    &.critical { background: #fee2e2; color: #111827 }
-    &.medium { background: #fef3c7; color: #d97706; }
-    &.low { background: #f3f4f6; color: #4b5563; }
+    &.critical { background: $priority-critical-bg; }
+    &.medium { background: $priority-medium-bg; }
+    &.low { background: $priority-low-bg; }
   }
 
   .status {
     display: flex;
     align-items: center;
-    font-weight: 600;
-    font-size: 0.75rem;
+    font-family: $font-family-base;
+    font-size: 12px;
+    font-weight: $font-weight-bold;
+    font-style: normal;
+    line-height: normal;
 
-    &.open { color: #4b5563; }
-    &.in-progress { color: #2563eb; }
-    &.pending { color: #d97706; }
-    &.resolved { color: #059669; }
-    &.closed { color: #111827; }
+    &.open { color: $status-open-text; }
+    &.in-progress { color: $status-in-progress-text; }
+    &.pending { color: $status-pending-text; }
+    &.resolved { color: $status-resolved-text; }
+    &.closed { color: $color-black; }
   }
 }

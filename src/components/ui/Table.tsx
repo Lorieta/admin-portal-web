@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode, FC } from 'react';
 import '../tickets/ticket_table.scss';
 
 interface TableProps {
@@ -25,7 +25,9 @@ export const TableContainer: FC<TableProps & { columns: string; sortableColumns?
           );
         })}
       </div>
-      {children}
+      <div className="admin-table-body">
+        {children}
+      </div>
     </div>
   );
 };

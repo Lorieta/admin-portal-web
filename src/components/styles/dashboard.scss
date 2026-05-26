@@ -4,11 +4,10 @@
 .dashboard {
   background: $page-bg;
   min-height: 100vh;
-  padding: 2rem;
+  padding: 2.5rem 3.5rem; // Increased padding for the "margin" look
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  // Texture background similar to the image
+  gap: 1.5rem; // Increased gap for better spacing
 
 }
 
@@ -17,6 +16,7 @@
   font-weight: 700;
   color: #1a1a1a;
   margin: 0;
+  margin-bottom: 0.5rem;
 }
 
 .metrics-row {
@@ -34,20 +34,18 @@
 .left-column {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1rem; // Changed to 1rem for consistent spacing between header and card
 }
 
 .ticket-preview-container {
-
-  border-radius: 12px;
-  padding: 1.25rem;
+  padding: 0;
 }
 
 .ticket-preview-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 1rem;
+  margin-top: 0.5rem; // Add a bit of space from the metrics row
 
   h2 {
     font-size: 1.25rem;
@@ -58,6 +56,7 @@
 
 .table-wrapper {
   overflow-x: auto;
+  padding: 0; // Table has its own border-radius and covers the container
 }
 
 .bottom-charts-row {

@@ -1,83 +1,78 @@
 // ============================================================
-// Priority Badge Colors
+// Core Colors
+// ============================================================
+$color-dark-gray: #3D3D3A;
+$color-light-bg: #F1EFE8;
+$color-white: #FFFFFF;
+$color-black: #000000;
+$color-near-black: #1A1A1A;
+$color-dark-header: #1A1A1A;
+
+// ============================================================
+// Priority Colors (Updated)
 // ============================================================
 
 // Critical
-$priority-critical-bg: #fde8e9;
-$priority-critical-text: #d2232a;
+$priority-critical-bg: #E58D91;
+$priority-critical-text: $color-near-black;
 
 // High
 $priority-high-bg: #faeeda;
 $priority-high-text: #ba7517;
 
 // Medium
-$priority-medium-bg: #e1f5ee;
-$priority-medium-text: #0f6e56;
+$priority-medium-bg: #EEDEA6;
+$priority-medium-text: $color-near-black;
 
 // Low
-$priority-low-bg: #f1efe8;
-$priority-low-text: #5f5e5a;
+$priority-low-bg: #F1EFE8;
+$priority-low-text: $color-near-black;
 
 // ============================================================
-// Status Badge Colors
+// Status Colors
 // ============================================================
-
-// Open
-$status-open-bg: #f1efe8;
-$status-open-text: #5f5e5a;
-
-// In Progress
-$status-in-progress-bg: #e6f1fb;
-$status-in-progress-text: #185fa5;
-
-// Pending
-$status-pending-bg: #faeeda;
-$status-pending-text: #854f0b;
 
 // Resolved
+$status-resolved-text: #3B6D11;
 $status-resolved-bg: #eaf3de;
-$status-resolved-text: #3b6d11;
 
-// Closed
-$status-closed-bg: #f1efe8;
-$status-closed-text: #1a1a1a;
-
-// ============================================================
-// Internal Notes Colors
-// ============================================================
-
-$internal-note-bg: #faeeda;
-$internal-note-border: #ba7517;
-$internal-note-label-text: #854f0b;
+// Other status defaults
+$status-open-text: #5f5e5a;
+$status-in-progress-text: #185fa5;
+$status-pending-text: #854f0b;
 
 // ============================================================
-// SLA Timer Color Coding
+// Typography Tokens
 // ============================================================
+$font-family-base: 'Mulish', sans-serif;
 
-$sla-critical: #d2232a; // Less than 1 hour remaining
-$sla-warning: #ba7517; // 1–4 hours remaining
-$sla-safe: #0f6e56; // Safe
+$font-size-xs: 12px;
+$font-size-sm: 14px;
+$font-size-md: 16px;
+$font-size-lg: 1.25rem;
+$font-size-xl: 1.5rem;
+$font-size-xxl: 1.75rem;
+$font-size-metric: 2rem;
+
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+$font-weight-black: 800;
 
 // ============================================================
-// Dev Colors
+// Layout & UI
 // ============================================================
-$developer-purple: #000000;
-$developer-light: #eeedfe;
-$page-bg: #E5E5E5; // Updated background color
-
+$page-bg: #E5E5E5;
+$card-radius: 5px;
+$table-radius: 0px;
 
 // ============================================================
 // Navigation Colors
 // ============================================================
-
-// Sidebar
-$nav-bg: #fdfdfd; // Main sidebar background
-$nav-text-color: #333333; // Default text/icon color
-$nav-hover-bg: rgba(107, 90, 237, 0.05); // Hover state background
-
-// Active tab
-$nav-active-bg: #000000;; // Active tab background
-$nav-active-text: #ffffff; // Active tab text/icon color
-
-// Avatar
-$nav-avatar-border: rgba(107, 90, 237, 0.2); // Profile image border
+$nav-bg: #fdfdfd;
+$nav-text-color: #333333;
+$nav-hover-bg: rgba(107, 90, 237, 0.05);
+$nav-active-bg: #000000;
+$nav-active-text: #ffffff;
+$nav-avatar-border: rgba(107, 90, 237, 0.2);
