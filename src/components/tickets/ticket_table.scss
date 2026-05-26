@@ -1,21 +1,24 @@
-@import '@/components/styles/_variables.scss';
+@use '@/components/styles/variables' as *;
 
 .admin-table {
   display: flex;
   flex-direction: column;
   width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
 .admin-table-header {
   display: grid;
   padding: 1rem;
-  background: #333;
+  background: #1a1a1a;
   color: white;
-  border-radius: 5px;
-  font-weight: bold;
-  font-size: 0.9rem;
-  margin-bottom: 1rem;
+  font-weight: 700;
+  font-size: 0.75rem;
   align-items: center;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 
   .header-cell {
     display: flex;
@@ -23,10 +26,9 @@
     gap: 0.5rem;
     
     .sort-icon {
-      margin-left: 0.5rem;
+      margin-left: 0.25rem;
       flex-shrink: 0;
-      width: 9px;
-      height: 13px;
+      opacity: 0.7;
     }
   }
 }
@@ -35,13 +37,16 @@
   display: grid;
   align-items: center;
   padding: 1rem;
-  border-bottom: 1px solid #ddd;
-  font-size: 0.9rem;
-  background: #f9f9f9;
+  border-bottom: 1px solid #f3f4f6;
+  background: white;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: #f9fafb;
+  }
 
   &:last-child {
-    border-bottom: 1px solid #ddd;
-    border-radius: 0 0 8px 8px;
+    border-bottom: none;
   }
 
   .cell {
@@ -49,39 +54,53 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #374151;
   }
 
   .date-time {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    
+    div:first-child {
+        font-weight: 700;
+        color: #111827;
+    }
+
     .time {
-      font-size: 0.8rem;
-      color: #666;
+      font-size: 0.7rem;
+      color: #6b7280;
+      font-weight: 600;
     }
   }
 
   .priority-badge {
-    padding: 0.25rem 0.75rem;
-    border-radius: 12px;
-    font-size: 0.8rem;
-    font-weight: bold;
+    padding: 0.35rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 700;
     display: inline-block;
     text-align: center;
-    min-width: 70px;
+    min-width: 80px;
+    text-transform: capitalize;
 
-    &.critical { background: #E58D91; color: white; }
-    &.medium { background: #EEDEA6; color: #333; }
-    &.low { background: #C7C5BF; color: white; }
+    &.critical { background: #fee2e2; color: #111827 }
+    &.medium { background: #fef3c7; color: #d97706; }
+    &.low { background: #f3f4f6; color: #4b5563; }
   }
 
   .status {
-    &.open { color: $status-open-text; &::before { color: $status-open-text; } }
-    &.in-progress { color: $status-in-progress-text; &::before { color: $status-in-progress-text; } }
-    &.pending { color: $status-pending-text; &::before { color: $status-pending-text; } }
-    &.resolved { color: $status-resolved-text; &::before { color: $status-resolved-text; } }
-    &.closed { color: $status-closed-text; &::before { color: $status-closed-text; } }
-    
-    &::before {
-      content: '●';
-      margin-right: 5px;
-    }
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    font-size: 0.75rem;
+
+    &.open { color: #4b5563; }
+    &.in-progress { color: #2563eb; }
+    &.pending { color: #d97706; }
+    &.resolved { color: #059669; }
+    &.closed { color: #111827; }
   }
 }
