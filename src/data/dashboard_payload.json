@@ -43,5 +43,151 @@
     { "name": "E. Olsen", "tickets": 12, "avatar": "https://res.cloudinary.com/dttgvr9lo/image/upload/v1771848603/Gemini_Generated_Image_grshdugrshdugrsh_b2q57k.png" },
     { "name": "C. Almadrones Jr.", "tickets": 12, "avatar": "https://res.cloudinary.com/dttgvr9lo/image/upload/v1771848603/Gemini_Generated_Image_grshdugrshdugrsh_b2q57k.png" },
     { "name": "C. Almadrones Jr.", "tickets": 12, "avatar": "https://res.cloudinary.com/dttgvr9lo/image/upload/v1771848603/Gemini_Generated_Image_grshdugrshdugrsh_b2q57k.png" }
+  ],
+  "tickets": [
+    {
+      "date": "01-01-2025",
+      "time": "9:00 AM",
+      "ticketId": "ZYN-01230",
+      "issue": "Payment process...",
+      "system": "PaySystem",
+      "client": "ABC Corp",
+      "priority": "Critical",
+      "status": "Open",
+      "developer": "",
+      "source": "Dev"
+    },
+    {
+      "date": "01-01-2025",
+      "time": "9:15 AM",
+      "ticketId": "ZYN-01231",
+      "issue": "Slow Page Load",
+      "system": "FreeZier",
+      "client": "JKL Corp",
+      "priority": "Medium",
+      "status": "Open",
+      "developer": "",
+      "source": "Client"
+    },
+    {
+      "date": "01-01-2025",
+      "time": "9:30 AM",
+      "ticketId": "ZYN-01232",
+      "issue": "Login Error",
+      "system": "ZynPlus",
+      "client": "MNO Corp",
+      "priority": "Low",
+      "status": "In Progress",
+      "developer": "N. Romanoff",
+      "source": "Client"
+    },
+    {
+      "date": "01-01-2025",
+      "time": "9:45 AM",
+      "ticketId": "ZYN-01233",
+      "issue": "Database Lag",
+      "system": "ZynPlus",
+      "client": "PQR Corp",
+      "priority": "Medium",
+      "status": "Open",
+      "developer": "",
+      "source": "Dev"
+    },
+    {
+      "date": "01-01-2025",
+      "time": "10:00 AM",
+      "ticketId": "ZYN-01234",
+      "issue": "UI Bug in Dashboard",
+      "system": "FreeZier",
+      "client": "STU Corp",
+      "priority": "Low",
+      "status": "In Progress",
+      "developer": "B. Banner",
+      "source": "Client"
+    },
+    {
+      "date": "01-01-2025",
+      "time": "10:15 AM",
+      "ticketId": "ZYN-01235",
+      "issue": "API Timeout",
+      "system": "PaySystem",
+      "client": "VWX Corp",
+      "priority": "Critical",
+      "status": "Open",
+      "developer": "",
+      "source": "Dev"
+    },
+    {
+      "date": "01-01-2025",
+      "time": "10:30 AM",
+      "ticketId": "ZYN-01236",
+      "issue": "Broken Link",
+      "system": "ZynPlus",
+      "client": "YZA Corp",
+      "priority": "Low",
+      "status": "Open",
+      "developer": "",
+      "source": "Dev"
+    },
+    {
+      "date": "01-01-2025",
+      "time": "10:45 AM",
+      "ticketId": "ZYN-01237",
+      "issue": "Email Notification Failure",
+      "system": "AuthService",
+      "client": "BCD Corp",
+      "priority": "Medium",
+      "status": "Resolved",
+      "developer": "T. Stark",
+      "source": "System"
+    },
+    {
+      "date": "01-01-2025",
+      "time": "11:00 AM",
+      "ticketId": "ZYN-01238",
+      "issue": "Password Reset Loop",
+      "system": "AuthService",
+      "client": "EFG Corp",
+      "priority": "High",
+      "status": "In Progress",
+      "developer": "S. Rogers",
+      "source": "Client"
+    },
+    {
+      "date": "01-01-2025",
+      "time": "11:15 AM",
+      "ticketId": "ZYN-01239",
+      "issue": "Data Sync Error",
+      "system": "PaySystem",
+      "client": "HIJ Corp",
+      "priority": "Medium",
+      "status": "Open",
+      "developer": "",
+      "source": "Dev"
+    },
+    {
+      "date": "01-01-2025",
+      "time": "11:30 AM",
+      "ticketId": "ZYN-01240",
+      "issue": "Session Timeout Issue",
+      "system": "ZynPlus",
+      "client": "KLM Corp",
+      "priority": "Low",
+      "status": "Open",
+      "developer": "",
+      "source": "Client"
+    },
+    {
+      "date": "01-01-2025",
+      "time": "11:45 AM",
+      "ticketId": "ZYN-01241",
+      "issue": "File Upload Failure",
+      "system": "FreeZier",
+      "client": "NOP Corp",
+      "priority": "Medium",
+      "status": "Open",
+      "developer": "",
+      "source": "Dev"
+    }
   ]
 }

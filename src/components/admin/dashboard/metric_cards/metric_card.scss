@@ -1,38 +1,78 @@
 @use '@/components/styles/variables' as *;
 
 .metric-card {
-  padding: 0.85rem 1rem; // Reduced padding
-  gap: 0.5rem; // Reduced gap
-  flex: 1;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border: none;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: rgba(255, 255, 255, 0.9);
+  box-sizing: border-box;
+
+  &.size-ticket {
+    width: 300px;
+    height: 150px;
+    padding: 0.75rem 1rem;
+  }
+
+  &.size-dashboard {
+    flex: 1;
+    min-height: 100px;
+    padding: 1rem;
+  }
 
   .metric-card-title {
-    font-size: 0.65rem; // Scaled down
+    font-size: 0.65rem;
     font-weight: 700;
-    color: #888;
+    color: #6b7280;
     letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 0.15rem;
+  }
+
+  &.metric-resolved {
+    .metric-card-title {
+      color: #3f6212;
+    }
+    .metric-card-value {
+      color: #3f6212;
+    }
   }
 
   .metric-card-body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
   }
 
   .metric-card-value {
-    font-size: 1.5rem; // Scaled down from 2rem
+    font-size: 1.5rem;
     font-weight: 800;
-    color: #333;
+    color: #111827;
+  }
+
+  &.size-ticket .metric-card-value {
+    font-size: 1.625rem;
   }
 
   .metric-card-icon {
     display: flex;
     align-items: center;
     justify-content: center;
-    opacity: 0.8;
     
-    svg {
-        width: 20px; // Scale down icons
-        height: 20px;
+    svg, div {
+        width: 24px;
+        height: 24px;
+    }
+  }
+
+  &.size-ticket .metric-card-icon {
+    svg, div {
+        width: 26px;
+        height: 26px;
     }
   }
 }

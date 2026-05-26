@@ -2,13 +2,13 @@ import '@/components/styles/dashboard.scss'
 import { OpenTickets, CriticalTickets, SLABreachRiskTicket, AverageResolvedTime, ResolvedToday } from '@/components/admin/dashboard/metric_cards/metric_cards';
 import { TicketRow } from "@/components/tickets/TicketTable";
 import { TableContainer } from "@/components/ui/Table";
-import { mockTickets } from "@/data/tickets";
 import { TicketsByPriority, TicketCreatedVsResolved, SlaWeeklyTrend, AgentWorkload, RiskTickets } from '@/components/admin/dashboard/analytics_components/analytics_components';
 import dashboardData from '@/data/dashboard_payload.json';
+import { Ticket } from '@/types/ticket';
 
 export default function Dashboard() {
     const gridColumns = "1fr 1fr 2fr 1fr 1fr 1fr 1fr";
-    const { metrics, agentWorkload, ticketCreatedVsResolved, riskTickets, ticketsByPriority, slaTrend } = dashboardData;
+    const { metrics, agentWorkload, ticketCreatedVsResolved, riskTickets, ticketsByPriority, slaTrend, tickets } = dashboardData;
     
     return (
         <div className="dashboard">
@@ -37,8 +37,8 @@ export default function Dashboard() {
                                 columns={gridColumns}
                                 sortableColumns={['System', 'Client', 'Priority', 'Status']}
                             >
-                                {mockTickets.slice(0, 5).map((ticket, index) => (
-                                    <TicketRow key={`${ticket.ticketId}-${index}`} ticket={ticket} style={{ gridTemplateColumns: gridColumns }} />
+                                {tickets.slice(0, 5).map((ticket, index) => (
+                                    <TicketRow key={`${ticket.ticketId}-${index}`} ticket={ticket as Ticket} style={{ gridTemplateColumns: gridColumns }} />
                                 ))}
                             </TableContainer>
                         </div>
