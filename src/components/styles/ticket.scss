@@ -1,0 +1,55 @@
+@use './variables' as *;
+
+.tickets-header-section {
+  .dashboard-title {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+
+    .sub-title {
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: #888;
+    }
+  }
+}
+
+.metrics-row-container {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 1.5rem;
+  align-items: flex-start;
+
+  .metrics-row {
+    flex: 1;
+  }
+}
+
+.management-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+// Adjust existing table body rounding for management table
+.ticket-management-table-container {
+  .admin-table-body {
+    background-color: transparent;
+    border-radius: 0;
+    
+    .ticket-row {
+      background-color: white;
+      border-bottom: 1px solid #eee;
+      
+      &:first-child {
+        border-radius: 5px 5px 0 0;
+      }
+      
+      &:last-child {
+        border-radius: 0 0 5px 5px;
+        border-bottom: none;
+      }
+    }
+  }
+}

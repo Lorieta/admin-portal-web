@@ -4,14 +4,13 @@ import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, BarChart, Bar, XAxis
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import './analytics_components.scss'
 
-const agents = [
-  { name: "E. Olsen", tickets: 12, total: 15 },
-  { name: "J. Doe", tickets: 8, total: 15 },
-  { name: "S. Smith", tickets: 14, total: 15 },
-  { name: "A. Lee", tickets: 6, total: 15 },
-]
+export interface AgentData {
+  name: string;
+  tickets: number;
+  total: number;
+}
 
-export function AgentWorkload() {
+export function AgentWorkload({ data = [] }: { data?: AgentData[] }) {
   return (
     <Card className="fullWidth">
       <CardHeader>
@@ -23,7 +22,7 @@ export function AgentWorkload() {
             <span>Agent</span>
             <span>Ticket</span>
           </div>
-          {agents.map((agent, index) => (
+          {data.map((agent, index) => (
             <div key={index} className="agentRow">
               <div className="agentAvatar" />
               <div className="agentName">{agent.name}</div>
@@ -42,17 +41,13 @@ export function AgentWorkload() {
   );
 }
 
-const comparisonData = [
-  { name: "Mon", created: 40, resolved: 24 },
-  { name: "Tue", created: 55, resolved: 38 },
-  { name: "Wed", created: 40, resolved: 52 },
-  { name: "Thu", created: 75, resolved: 48 },
-  { name: "Fri", created: 52, resolved: 62 },
-  { name: "Sat", created: 20, resolved: 16 },
-  { name: "Sun", created: 12, resolved: 8 },
-]
+export interface ComparisonData {
+  name: string;
+  created: number;
+  resolved: number;
+}
 
-export function TicketCreatedVsResolved() {
+export function TicketCreatedVsResolved({ data = [] }: { data?: ComparisonData[] }) {
   return (
     <Card className="fullWidth">
       <CardHeader>
@@ -61,7 +56,7 @@ export function TicketCreatedVsResolved() {
       <CardContent>
         <div className="chartContainer">
           <ResponsiveContainer width="100%" height="100%">
-            <BarChart data={comparisonData} barGap={0}>
+            <BarChart data={data} barGap={0}>
               <CartesianGrid strokeDasharray="3 3" stroke="#eee" />
               <XAxis 
                 dataKey="name" 
@@ -85,13 +80,14 @@ export function TicketCreatedVsResolved() {
   );
 }
 
-const riskTickets = [
-  { id: "ZYN-0123", system: "PaySystem", priority: "critical", timeLeft: "1.2h" },
-  { id: "ZYN-0124", system: "PaySystem", priority: "critical", timeLeft: "1.2h" },
-  { id: "ZYN-0125", system: "AuthService", priority: "high", timeLeft: "2.5h" },
-]
+export interface RiskTicketData {
+  id: string;
+  system: string;
+  priority: string;
+  timeLeft: string;
+}
 
-export function RiskTickets() {
+export function RiskTickets({ data = [] }: { data?: RiskTicketData[] }) {
   return (
     <Card className="fullWidth">
       <CardHeader>
@@ -108,7 +104,7 @@ export function RiskTickets() {
             </tr>
           </thead>
           <tbody>
-            {riskTickets.map((ticket, index) => (
+            {data.map((ticket, index) => (
               <tr key={index}>
                 <td>{ticket.id}</td>
                 <td>{ticket.system}</td>
@@ -127,14 +123,13 @@ export function RiskTickets() {
   );
 }
 
-const pieData = [
-  { name: "Medium", value: 35, color: "#4285F4" },
-  { name: "High", value: 15, color: "#EF6C00" },
-  { name: "Critical", value: 8, color: "#F06292" },
-  { name: "Low", value: 42, color: "#90A4AE" },
-]
+export interface PieData {
+  name: string;
+  value: number;
+  color: string;
+}
 
-export function TicketsByPriority() {
+export function TicketsByPriority({ data = [] }: { data?: PieData[] }) {
   return (
     <Card className="blueBorder">
       <CardHeader>
@@ -145,7 +140,7 @@ export function TicketsByPriority() {
           <ResponsiveContainer width="100%" height="100%">
             <PieChart>
               <Pie
-                data={pieData}
+                data={data}
                 cx="50%"
                 cy="50%"
                 outerRadius={70}
@@ -171,7 +166,7 @@ export function TicketsByPriority() {
                 }}
                 labelLine={false}
               >
-                {pieData.map((entry, index) => (
+                {data.map((entry, index) => (
                   <Cell key={`cell-${index}`} fill={entry.color} />
                 ))}
               </Pie>
@@ -184,15 +179,14 @@ export function TicketsByPriority() {
   )
 }
 
-const slaTrendData = [
-  { name: "Mon", breached: 5, atRisk: 10, resolved: 25 },
-  { name: "Tue", breached: 8, atRisk: 15, resolved: 22 },
-  { name: "Wed", breached: 4, atRisk: 18, resolved: 30 },
-  { name: "Thu", breached: 12, atRisk: 16, resolved: 28 },
-  { name: "Fri", breached: 10, atRisk: 12, resolved: 35 },
-]
+export interface SlaTrendData {
+  name: string;
+  breached: number;
+  atRisk: number;
+  resolved: number;
+}
 
-export function SlaWeeklyTrend() {
+export function SlaWeeklyTrend({ data = [] }: { data?: SlaTrendData[] }) {
   return (
     <Card className="fullWidth">
       <CardHeader>
@@ -219,7 +213,7 @@ export function SlaWeeklyTrend() {
       <CardContent>
         <div className="trendContainer">
           <ResponsiveContainer width="100%" height="100%">
-            <LineChart data={slaTrendData}>
+            <LineChart data={data}>
               <XAxis dataKey="name" hide />
               <YAxis hide />
               <Tooltip />

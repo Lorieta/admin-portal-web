@@ -1,0 +1,47 @@
+{
+  "metrics": {
+    "openTickets": 20,
+    "critical": 7,
+    "slaBreachRisk": 4,
+    "avgResolvedTime": "4.3h",
+    "resolvedToday": 10
+  },
+  "agentWorkload": [
+    { "name": "E. Olsen", "tickets": 12, "total": 15 },
+    { "name": "J. Doe", "tickets": 8, "total": 15 },
+    { "name": "S. Smith", "tickets": 14, "total": 15 },
+    { "name": "A. Lee", "tickets": 6, "total": 15 }
+  ],
+  "ticketCreatedVsResolved": [
+    { "name": "Mon", "created": 40, "resolved": 24 },
+    { "name": "Tue", "created": 55, "resolved": 38 },
+    { "name": "Wed", "created": 40, "resolved": 52 },
+    { "name": "Thu", "created": 75, "resolved": 48 },
+    { "name": "Fri", "created": 52, "resolved": 62 },
+    { "name": "Sat", "created": 20, "resolved": 16 },
+    { "name": "Sun", "created": 12, "resolved": 8 }
+  ],
+  "riskTickets": [
+    { "id": "ZYN-0123", "system": "PaySystem", "priority": "critical", "timeLeft": "1.2h" },
+    { "id": "ZYN-0124", "system": "PaySystem", "priority": "critical", "timeLeft": "1.2h" },
+    { "id": "ZYN-0125", "system": "AuthService", "priority": "high", "timeLeft": "2.5h" }
+  ],
+  "ticketsByPriority": [
+    { "name": "Medium", "value": 35, "color": "#4285F4" },
+    { "name": "High", "value": 15, "color": "#EF6C00" },
+    { "name": "Critical", "value": 8, "color": "#F06292" },
+    { "name": "Low", "value": 42, "color": "#90A4AE" }
+  ],
+  "slaTrend": [
+    { "name": "Mon", "breached": 5, "atRisk": 10, "resolved": 25 },
+    { "name": "Tue", "breached": 8, "atRisk": 15, "resolved": 22 },
+    { "name": "Wed", "breached": 4, "atRisk": 18, "resolved": 30 },
+    { "name": "Thu", "breached": 12, "atRisk": 16, "resolved": 28 },
+    { "name": "Fri", "breached": 10, "atRisk": 12, "resolved": 35 }
+  ],
+  "availableAgents": [
+    { "name": "E. Olsen", "tickets": 12, "avatar": "https://res.cloudinary.com/dttgvr9lo/image/upload/v1771848603/Gemini_Generated_Image_grshdugrshdugrsh_b2q57k.png" },
+    { "name": "C. Almadrones Jr.", "tickets": 12, "avatar": "https://res.cloudinary.com/dttgvr9lo/image/upload/v1771848603/Gemini_Generated_Image_grshdugrshdugrsh_b2q57k.png" },
+    { "name": "C. Almadrones Jr.", "tickets": 12, "avatar": "https://res.cloudinary.com/dttgvr9lo/image/upload/v1771848603/Gemini_Generated_Image_grshdugrshdugrsh_b2q57k.png" }
+  ]
+}

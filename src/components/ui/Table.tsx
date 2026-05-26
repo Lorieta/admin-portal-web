@@ -2,7 +2,7 @@ import { ReactNode, FC } from 'react';
 import '../tickets/ticket_table.scss';
 
 interface TableProps {
-  headers: string[];
+  headers: (string | ReactNode)[];
   children: ReactNode;
 }
 
@@ -11,7 +11,7 @@ export const TableContainer: FC<TableProps & { columns: string; sortableColumns?
     <div className="admin-table">
       <div className="admin-table-header" style={{ gridTemplateColumns: columns }}>
         {headers.map((header, index) => {
-          const isSortable = sortableColumns.includes(header);
+          const isSortable = typeof header === 'string' && sortableColumns.includes(header);
           return (
             <div key={index} className="cell header-cell">
               {header}

@@ -4,9 +4,11 @@ import { TicketRow } from "@/components/tickets/TicketTable";
 import { TableContainer } from "@/components/ui/Table";
 import { mockTickets } from "@/data/tickets";
 import { TicketsByPriority, TicketCreatedVsResolved, SlaWeeklyTrend, AgentWorkload, RiskTickets } from '@/components/admin/dashboard/analytics_components/analytics_components';
+import dashboardData from '@/data/dashboard_payload.json';
 
 export default function Dashboard() {
     const gridColumns = "1fr 1fr 2fr 1fr 1fr 1fr 1fr";
+    const { metrics, agentWorkload, ticketCreatedVsResolved, riskTickets, ticketsByPriority, slaTrend } = dashboardData;
     
     return (
         <div className="dashboard">
@@ -14,11 +16,11 @@ export default function Dashboard() {
             
             {/* Top Row: Metric Cards */}
             <div className="metrics-row">
-                <OpenTickets />
-                <CriticalTickets />
-                <SLABreachRiskTicket />
-                <AverageResolvedTime />
-                <ResolvedToday />
+                <OpenTickets value={metrics.openTickets} />
+                <CriticalTickets value={metrics.critical} />
+                <SLABreachRiskTicket value={metrics.slaBreachRisk} />
+                <AverageResolvedTime value={metrics.avgResolvedTime} />
+                <ResolvedToday value={metrics.resolvedToday} />
             </div>
 
             {/* Middle Section: Queue Preview and Sidebar */}
@@ -43,20 +45,20 @@ export default function Dashboard() {
                     </div>
 
                     <div className="bottom-charts-row">
-                        <TicketCreatedVsResolved />
-                        <RiskTickets />
+                        <TicketCreatedVsResolved data={ticketCreatedVsResolved} />
+                        <RiskTickets data={riskTickets} />
                     </div>
                 </div>
 
                 <div className="right-column">
-                    <AgentWorkload />
-                    <TicketsByPriority />
+                    <AgentWorkload data={agentWorkload} />
+                    <TicketsByPriority data={ticketsByPriority} />
                 </div>
             </div>
 
             {/* Bottom Section: Trend */}
             <div className="trend-section">
-                <SlaWeeklyTrend />
+                <SlaWeeklyTrend data={slaTrend} />
             </div>
         </div>
     )
