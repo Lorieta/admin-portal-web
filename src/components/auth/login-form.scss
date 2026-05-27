@@ -74,6 +74,16 @@
     border-color: #bbb;
     box-shadow: 0 0 0 2px rgba(231, 76, 60, 0.1);
   }
+
+  &.input-error {
+    border-color: #dc3545;
+    background-color: #fff5f5;
+
+    &:focus-within {
+      border-color: #dc3545;
+      box-shadow: 0 0 0 2px rgba(220, 53, 69, 0.1);
+    }
+  }
 }
 
 .input-icon {
@@ -95,6 +105,13 @@
   &::placeholder {
     color: #999;
   }
+}
+
+.error-message {
+  font-size: var.$font-size-sm;
+  color: #dc3545;
+  margin-top: -0.25rem;
+  display: block;
 }
 
 .toggle-password {

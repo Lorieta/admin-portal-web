@@ -10,9 +10,49 @@ export default function LoginForm() {
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [errors, setErrors] = useState<{ email?: string; password?: string }>({});
+
+  const validateEmail = (value: string) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!value) return 'Email is required';
+    if (!emailRegex.test(value)) return 'Please enter a valid email address';
+    return '';
+  };
+
+  const validatePassword = (value: string) => {
+    if (!value) return 'Password is required';
+    if (value.length < 6) return 'Password must be at least 6 characters';
+    return '';
+  };
+
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setEmail(value);
+    const error = validateEmail(value);
+    setErrors((prev) => ({ ...prev, email: error }));
+  };
+
+  const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setPassword(value);
+    const error = validatePassword(value);
+    setErrors((prev) => ({ ...prev, password: error }));
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    const emailError = validateEmail(email);
+    const passwordError = validatePassword(password);
+
+    if (emailError || passwordError) {
+      setErrors({
+        email: emailError,
+        password: passwordError,
+      });
+      return;
+    }
+
     setLoading(true);
     // Add your login logic here
     setTimeout(() => setLoading(false), 1000);
@@ -44,7 +84,7 @@ export default function LoginForm() {
             <label htmlFor="email" className="form-label">
               Email
             </label>
-            <div className="input-wrapper">
+            <div className={`input-wrapper ${errors.email ? 'input-error' : ''}`}>
               <svg
                 className="input-icon"
                 width="20"
@@ -64,10 +104,10 @@ export default function LoginForm() {
                 className="form-input"
                 placeholder="user@example.com"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
+                onChange={handleEmailChange}
               />
             </div>
+            {errors.email && <span className="error-message">{errors.email}</span>}
           </div>
 
           {/* Password Field */}
@@ -75,7 +115,7 @@ export default function LoginForm() {
             <label htmlFor="password" className="form-label">
               Password
             </label>
-            <div className="input-wrapper">
+            <div className={`input-wrapper ${errors.password ? 'input-error' : ''}`}>
               <svg
                 className="input-icon"
                 width="20"
@@ -95,8 +135,7 @@ export default function LoginForm() {
                 className="form-input"
                 placeholder="password"
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
+                onChange={handlePasswordChange}
               />
               <button
                 type="button"
@@ -121,6 +160,7 @@ export default function LoginForm() {
                 )}
               </button>
             </div>
+            {errors.password && <span className="error-message">{errors.password}</span>}
             <Link href="/forgot-password" className="forgot-password-link">
               forgot password?
             </Link>
@@ -135,7 +175,7 @@ export default function LoginForm() {
         {/* Sign Up Link */}
         <div className="signup-section">
           <p className="signup-text">
-            Didn't have an account?{' '}
+            Didn`&apos;`t have an account?{' '}
             <Link href="/signup" className="signup-link">
               Get started
             </Link>
