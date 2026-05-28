@@ -1,3 +1,10 @@
+import LoginForm from '@/components/auth/LoginForm';
+import './login.scss';
+
 export default function Login() {
-  return <h1>Login</h1>;
+  return (
+    <main className="login-page">
+      <LoginForm />
+    </main>
+  );
 }
