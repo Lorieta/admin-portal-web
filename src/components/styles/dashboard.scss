@@ -12,11 +12,19 @@
 }
 
 .dashboard-title {
-  font-size: 1.75rem;
-  font-weight: 700;
-  color: #1a1a1a;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #111827;
   margin: 0;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  .sub-title {
+    font-weight: 500;
+    color: #6b7280;
+  }
 }
 
 .metrics-row {

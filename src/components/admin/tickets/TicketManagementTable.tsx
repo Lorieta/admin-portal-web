@@ -1,4 +1,6 @@
-import React, { FC } from 'react';
+'use client';
+
+import React, { FC, useState } from 'react';
 import { Ticket } from '@/types/ticket';
 import { TableContainer } from '@/components/ui/Table';
 import './ticket_management_table.scss';
@@ -36,9 +38,19 @@ export const ManagementTicketRow: FC<ManagementTicketRowProps> = ({ ticket, colu
 };
 
 export const TicketManagementTable: FC<{ tickets: Ticket[] }> = ({ tickets }) => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 9;
+  const totalPages = Math.max(1, Math.ceil(tickets.length / itemsPerPage));
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const paginatedTickets = tickets.slice(startIndex, startIndex + itemsPerPage);
+
+  const goToPage = (page: number) => {
+    setCurrentPage(Math.max(1, Math.min(page, totalPages)));
+  };
+
   const gridColumns = "40px 1.2fr 1.2fr 2fr 1.2fr 1.2fr 1.2fr 1fr 1fr 1.2fr";
   const headers = [
-    <input key="select-all" type="checkbox" className="header-checkbox" />,
+
     'Date', 'Ticket ID', 'Issue', 'System', 'Client', 'Developer', 'Source', 'Priority', 'Status'
   ];
   const sortableColumns = ['System', 'Client', 'Developer', 'Source', 'Priority', 'Status'];
@@ -50,9 +62,9 @@ export const TicketManagementTable: FC<{ tickets: Ticket[] }> = ({ tickets }) =>
         columns={gridColumns} 
         sortableColumns={sortableColumns}
       >
-        {tickets.map((ticket, index) => (
+        {paginatedTickets.map((ticket, index) => (
           <ManagementTicketRow 
-            key={`${ticket.ticketId}-${index}`} 
+            key={`${ticket.ticketId}-${startIndex + index}`} 
             ticket={ticket} 
             columns={gridColumns} 
           />
@@ -61,10 +73,22 @@ export const TicketManagementTable: FC<{ tickets: Ticket[] }> = ({ tickets }) =>
       
       <div className="pagination">
         <div className="pagination-controls">
-          <button className="page-btn">&lt;</button>
-          <button className="page-btn">&gt;</button>
+          <button
+            className="page-btn"
+            onClick={() => goToPage(currentPage - 1)}
+            disabled={currentPage <= 1}
+          >
+            &lt;
+          </button>
+          <button
+            className="page-btn"
+            onClick={() => goToPage(currentPage + 1)}
+            disabled={currentPage >= totalPages}
+          >
+            &gt;
+          </button>
         </div>
-        <span className="page-info">Page 1 of 2</span>
+        <span className="page-info">Page {currentPage} of {totalPages}</span>
       </div>
     </div>
   );

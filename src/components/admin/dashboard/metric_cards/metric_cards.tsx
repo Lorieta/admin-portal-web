@@ -6,10 +6,12 @@ interface MetricCardProps {
   value: string | number;
   icon: React.ReactNode;
   color?: string;
+  className?: string;
+  size?: 'ticket' | 'dashboard';
 }
 
-const MetricCard: React.FC<MetricCardProps> = ({ title, value, icon, color }) => (
-  <Card className="metric-card">
+const MetricCard: React.FC<MetricCardProps> = ({ title, value, icon, color, className, size = 'dashboard' }) => (
+  <Card className={`metric-card size-${size} ${className || ''}`}>
     <div className="metric-card-title">{title}</div>
     <div className="metric-card-body">
       <div className="metric-card-value" style={{ color }}>{value}</div>
@@ -18,39 +20,65 @@ const MetricCard: React.FC<MetricCardProps> = ({ title, value, icon, color }) =>
   </Card>
 );
 
-export const OpenTickets = ({ value = "20" }: { value?: string | number }) => <MetricCard title="OPEN TICKETS" value={value} icon={<svg width="26" height="27" viewBox="0 0 26 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+export const OpenTickets = ({ value = "20", size = "dashboard" }: { value?: string | number, size?: 'ticket' | 'dashboard' }) => <MetricCard title="OPEN TICKETS" value={value} size={size} icon={<svg width="26" height="27" viewBox="0 0 26 27" fill="none" xmlns="http://www.w3.org/2000/svg">
   <path d="M21.645 6.73523L21.0895 7.31215C20.8066 7.60585 20.423 7.77086 20.023 7.77086C19.6231 7.77086 19.2395 7.60585 18.9566 7.31215C18.6738 7.01844 18.5149 6.62009 18.5149 6.20473C18.5149 5.78936 18.6738 5.39101 18.9566 5.0973L19.5122 4.52039L15.9717 0.84375L11.503 5.48438L11.2998 6.12193L10.6859 6.33287L0.8125 16.586L4.355 20.2648L4.91055 19.6879C5.19338 19.3941 5.57697 19.2291 5.97695 19.2291C6.37693 19.2291 6.76053 19.3941 7.04336 19.6879C7.32619 19.9816 7.48508 20.3799 7.48508 20.7953C7.48508 21.2106 7.32619 21.609 7.04336 21.9027L6.48781 22.4796L10.0283 26.1562L19.9002 15.9047L20.1033 15.2671L20.7172 15.0562L25.186 10.4156L21.645 6.73523ZM11.0541 7.02158L12.1646 5.86828L13.8404 7.60852L12.7293 8.76182L11.0541 7.02158ZM13.2377 9.28916L14.3488 8.13533L16.0002 9.85025L14.8891 11.0041L13.2377 9.28916ZM15.3989 11.5335L16.51 10.3797L18.1614 12.0946L17.0523 13.2511L15.3989 11.5335ZM19.2364 15.5181L17.5607 13.7779L18.6713 12.6241L20.347 14.3643L19.2364 15.5181Z" fill="#888780"/>
 </svg>} />;
 
-export const CriticalTickets = ({ value = "7" }: { value?: string | number }) => <MetricCard title="CRITICAL" value={value} icon={<svg width="25" height="27" viewBox="0 0 25 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+export const CriticalTickets = ({ value = "7", size = "dashboard" }: { value?: string | number, size?: 'ticket' | 'dashboard' }) => <MetricCard title="CRITICAL" value={value} size={size} icon={<svg width="25" height="27" viewBox="0 0 25 27" fill="none" xmlns="http://www.w3.org/2000/svg">
   <path opacity="0.5" d="M12.5 27C14.0278 27 15.2639 25.8823 15.2639 24.5009H9.73611C9.73611 25.8823 10.9722 27 12.5 27ZM22.2222 19.4651V11.9302C22.2222 7.72326 18.9444 4.20698 14.5833 3.35302V0H10.4167V3.35302C6.05556 4.20698 2.77778 7.72326 2.77778 11.9302V19.4651L0 21.9767V23.2326H25V21.9767L22.2222 19.4651ZM13.8889 18.2093H11.1111V15.6977H13.8889V18.2093ZM13.8889 13.186H11.1111V8.16279H13.8889V13.186Z" fill="#D2232A"/>
 </svg>} color="red" />;
 
-export const SLABreachRiskTicket = ({ value = "4" }: { value?: string | number }) => <MetricCard title="SLA BREACH RISK" value={value} icon={<svg width="26" height="27" viewBox="0 0 26 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+export const SLABreachRiskTicket = ({ value = "4", size = "dashboard" }: { value?: string | number, size?: 'ticket' | 'dashboard' }) => <MetricCard title="SLA BREACH RISK" value={value} size={size} icon={<svg width="26" height="27" viewBox="0 0 26 27" fill="none" xmlns="http://www.w3.org/2000/svg">
   <g opacity="0.5">
     <path fillRule="evenodd" clipRule="evenodd" d="M12.3989 4.79834C12.3517 4.71177 12.2832 4.63977 12.2004 4.58967C12.1176 4.53958 12.0235 4.51318 11.9277 4.51318C11.8319 4.51318 11.7378 4.53958 11.655 4.58967C11.5722 4.63977 11.5037 4.71177 11.4564 4.79834L2.23184 21.6598C2.18506 21.7453 2.16068 21.8421 2.16114 21.9404C2.1616 22.0388 2.18687 22.1353 2.23444 22.2203C2.28201 22.3053 2.35022 22.3759 2.43226 22.425C2.5143 22.4741 2.60731 22.5001 2.70201 22.5002H21.1533C21.2481 22.5003 21.3413 22.4745 21.4235 22.4255C21.5057 22.3764 21.574 22.3058 21.6217 22.2208C21.6694 22.1357 21.6948 22.0391 21.6953 21.9407C21.6958 21.8423 21.6714 21.7454 21.6246 21.6598L19.1654 17.1655C18.2764 17.2701 17.3774 17.1012 16.5799 16.6799C15.7825 16.2586 15.1218 15.6033 14.6799 14.7954C14.2379 13.9875 14.0342 13.0627 14.094 12.1356C14.1538 11.2086 14.4745 10.3202 15.0163 9.58072L12.3989 4.79834ZM11.1043 12.6565C11.1043 12.4327 11.1899 12.2181 11.3423 12.0598C11.4947 11.9016 11.7014 11.8127 11.9168 11.8127C12.1323 11.8127 12.339 11.9016 12.4914 12.0598C12.6437 12.2181 12.7293 12.4327 12.7293 12.6565V15.469C12.7293 15.6927 12.6437 15.9074 12.4914 16.0656C12.339 16.2238 12.1323 16.3127 11.9168 16.3127C11.7014 16.3127 11.4947 16.2238 11.3423 16.0656C11.1899 15.9074 11.1043 15.6927 11.1043 15.469V12.6565ZM12.7293 17.4377V19.1252H11.1043V17.4377H12.7293Z" fill="#B88612"/>
     <path fillRule="evenodd" clipRule="evenodd" d="M15.6155 10.6765C15.3205 11.2187 15.1659 11.8312 15.167 12.454C15.1655 13.0812 15.3212 13.698 15.6189 14.2437C15.9165 14.7895 16.3458 15.2454 16.8645 15.5666C17.3833 15.8878 17.9736 16.0633 18.5774 16.0757C19.1813 16.0882 19.7779 15.9373 20.3085 15.6377L22.4264 17.836L23.8348 16.3735L21.7158 14.1741C22.1624 13.334 22.2694 12.3441 22.0132 11.4222C21.757 10.5002 21.1586 9.72166 20.3497 9.25785C19.5407 8.79403 18.5875 8.68293 17.6997 8.94897C16.8118 9.21502 16.0621 9.83642 15.6155 10.6765ZM20.1438 12.454C20.1438 12.8651 19.9866 13.2594 19.7066 13.5502C19.4266 13.8409 19.0469 14.0042 18.651 14.0042C18.2551 14.0042 17.8754 13.8409 17.5954 13.5502C17.3155 13.2594 17.1582 12.8651 17.1582 12.454C17.1582 12.0428 17.3155 11.6485 17.5954 11.3578C17.8754 11.0671 18.2551 10.9037 18.651 10.9037C19.0469 10.9037 19.4266 11.0671 19.7066 11.3578C19.9866 11.6485 20.1438 12.0428 20.1438 12.454Z" fill="#B88612"/>
   </g>
 </svg>} color="orange" />;
 
-export const AverageResolvedTime = ({ value = "4.3h" }: { value?: string | number }) => <MetricCard title="AVG. RESOLVED TIME" value={value} icon={<svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+export const AverageResolvedTime = ({ value = "4.3h", size = "dashboard" }: { value?: string | number, size?: 'ticket' | 'dashboard' }) => <MetricCard title="AVG. RESOLVED TIME" value={value} size={size} icon={<svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
   <g opacity="0.7">
     <path d="M13.5 24.75C7.28663 24.75 2.25 19.7134 2.25 13.5C2.25 7.28663 7.28663 2.25 13.5 2.25C19.7134 2.25 24.75 7.28663 24.75 13.5C24.75 19.7134 19.7134 24.75 13.5 24.75ZM14.625 13.5V7.875H12.375V15.75H19.125V13.5H14.625Z" fill="#D3D1C7"/>
   </g>
 </svg>} />;
 
-export const ResolvedToday = ({ value = "10" }: { value?: string | number }) => <MetricCard title="RESOLVED TODAY" value={value} icon={<svg width="26" height="27" viewBox="0 0 26 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+export const ResolvedToday = ({ value = "10", size = "dashboard" }: { value?: string | number, size?: 'ticket' | 'dashboard' }) => <MetricCard title="RESOLVED TODAY" value={value} size={size} icon={<svg width="26" height="27" viewBox="0 0 26 27" fill="none" xmlns="http://www.w3.org/2000/svg">
   <g opacity="0.5">
     <path d="M24.9168 11.25C24.9168 10.6533 24.6886 10.081 24.2822 9.65901C23.8759 9.23705 23.3248 9 22.7502 9H15.9035L16.9435 3.85875C16.9652 3.74625 16.976 3.6225 16.976 3.49875C16.976 3.0375 16.7918 2.61 16.4993 2.30625L15.351 1.125L8.22266 8.5275C7.82183 8.94375 7.5835 9.50625 7.5835 10.125V21.375C7.5835 21.9717 7.81177 22.544 8.2181 22.966C8.62443 23.3879 9.17553 23.625 9.75016 23.625H19.5002C20.3993 23.625 21.1685 23.0625 21.4935 22.2525L24.7652 14.3212C24.8627 14.0625 24.9168 13.7925 24.9168 13.5V11.25ZM1.0835 23.625H5.41683V10.125H1.0835V23.625Z" fill="#3B6D11"/>
   </g>
 </svg>} color="green" />;
 
-export const OpenMetric = ({ value = "12" }: { value?: string | number }) => <MetricCard title="OPEN" value={value} icon={<div style={{width: 20, height: 20, background: '#D9D9D9'}} />} />;
-export const InProgressMetric = ({ value = "8" }: { value?: string | number }) => <MetricCard title="IN PROGRESS" value={value} icon={<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path opacity="0.5" d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2ZM13 12V7H11V13H17V11H13V12Z" fill="#888780"/>
-</svg>} />;
-export const ResolvedMetric = ({ value = "7" }: { value?: string | number }) => <MetricCard title="RESOLVED" value={value} icon={<svg width="26" height="27" viewBox="0 0 26 27" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <g opacity="0.5">
-    <path d="M24.9168 11.25C24.9168 10.6533 24.6886 10.081 24.2822 9.65901C23.8759 9.23705 23.3248 9 22.7502 9H15.9035L16.9435 3.85875C16.9652 3.74625 16.976 3.6225 16.976 3.49875C16.976 3.0375 16.7918 2.61 16.4993 2.30625L15.351 1.125L8.22266 8.5275C7.82183 8.94375 7.5835 9.50625 7.5835 10.125V21.375C7.5835 21.9717 7.81177 22.544 8.2181 22.966C8.62443 23.3879 9.17553 23.625 9.75016 23.625H19.5002C20.3993 23.625 21.1685 23.0625 21.4935 22.2525L24.7652 14.3212C24.8627 14.0625 24.9168 13.7925 24.9168 13.5V11.25ZM1.0835 23.625H5.41683V10.125H1.0835V23.625Z" fill="#3B6D11"/>
-  </g>
-</svg>} color="green" />;
+export const OpenMetric = ({ value = "12", size = "dashboard" }: { value?: string | number, size?: 'ticket' | 'dashboard' }) => (
+  <MetricCard 
+    title="OPEN" 
+    value={value} 
+    className="metric-open"
+    size={size}
+    icon={<div style={{width: 20, height: 20, background: '#D9D9D9', borderRadius: '2px'}} />} 
+  />
+);
+
+export const InProgressMetric = ({ value = "8", size = "dashboard" }: { value?: string | number, size?: 'ticket' | 'dashboard' }) => (
+  <MetricCard 
+    title="IN PROGRESS" 
+    value={value} 
+    className="metric-in-progress"
+    size={size}
+    icon={<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" fill="#D9D9D9"/>
+      <path d="M12 6V12L16 14" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>} 
+  />
+);
+
+export const ResolvedMetric = ({ value = "7", size = "dashboard" }: { value?: string | number, size?: 'ticket' | 'dashboard' }) => (
+  <MetricCard 
+    title="RESOLVED" 
+    value={value} 
+    className="metric-resolved"
+    size={size}
+    icon={<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M14 9V5C14 4.20435 13.6839 3.44129 13.1213 2.87868C12.5587 2.31607 11.7957 2 11 2L7 11V22H18.28C18.7623 22.0008 19.2304 21.8385 19.6067 21.5398C19.983 21.2411 20.2447 20.8242 20.35 20.35L21.85 13.35C21.9211 13.0125 21.9142 12.6625 21.83 12.3278C21.7458 11.9931 21.5866 11.6833 21.3651 11.4231C21.1436 11.1629 20.8656 10.9595 20.5532 10.8291C20.2408 10.6987 19.9025 10.6448 19.56 10.67L14 10.67V9Z" fill="#a3b899" stroke="#a3b899" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M7 11H3V22H7V11Z" fill="#a3b899" stroke="#a3b899" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>} 
+  />
+);

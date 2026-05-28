@@ -4,54 +4,54 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  gap: 1rem; // Increased gap to match user preference
+  gap: 0.75rem;
 }
 
 .admin-table-header {
   display: grid;
-  padding: 0.75rem 1rem;
-  background: $color-dark-header;
+  padding: 0.85rem 1.25rem;
+  background: #1f2937; // Darker header
   color: $color-white;
-  font-weight: $font-weight-bold;
-  font-size: 0.7rem;
+  font-weight: 700;
+  font-size: 0.75rem;
   align-items: center;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  border-radius: $table-radius; // Rounded header
+  text-transform: capitalize; // From image
+  border-radius: 12px;
+  margin-bottom: 0.5rem;
 
   .header-cell {
     display: flex;
     align-items: center;
-    gap: 0.4rem;
+    gap: 0.5rem;
     
     .sort-icon {
-      margin-left: 0.2rem;
+      margin-left: 0.25rem;
       flex-shrink: 0;
-      opacity: 0.7;
+      opacity: 0.8;
     }
   }
 }
 
 .admin-table-body {
-  background: $color-white;
-  border-radius: $table-radius; // Rounded body
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .ticket-row {
   display: grid;
   align-items: center;
-  padding: 0.65rem 1rem;
-  border-bottom: 1px solid #f3f4f6;
-  background: transparent; // Use body background
-  transition: background-color 0.2s;
+  padding: 0.85rem 1.25rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s, background-color 0.2s;
+  border-bottom: none;
 
   &:hover {
-    background-color: #f9fafb;
-  }
-
-  &:last-child {
-    border-bottom: none;
+    background-color: #ffffff;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   }
 
   .cell {
@@ -64,56 +64,53 @@
     line-height: normal;
   }
 
-  .issue-cell, .system-cell, .client-cell {
-    font-size: 13px;
-    font-weight: $font-weight-medium;
-    color: #374151;
+  .issue-cell, .system-cell, .client-cell, .developer-cell, .source-cell {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: #4b5563;
   }
 
   .date-cell, .ticket-id-cell {
-    color: $color-dark-gray;
-    font-size: 13px;
-    font-weight: $font-weight-bold;
+    color: #111827;
+    font-size: 0.8125rem;
+    font-weight: 700;
 
     .time {
-      font-size: 11px;
+      font-size: 0.6875rem;
       color: #6b7280;
-      font-weight: $font-weight-medium;
+      font-weight: 500;
+      margin-top: 2px;
     }
   }
 
   .priority-badge {
-    padding: 0.25rem 0.6rem;
-    border-radius: 20px;
+    padding: 0.35rem 0.75rem;
+    border-radius: 9999px;
     font-family: $font-family-base;
-    font-size: 12px;
-    font-weight: $font-weight-bold;
-    font-style: normal;
-    line-height: normal;
+    font-size: 0.75rem;
+    font-weight: 700;
     display: inline-block;
     text-align: center;
-    min-width: 70px;
+    min-width: 80px;
     text-transform: capitalize;
-    color: $color-near-black;
+    color: #111827;
 
-    &.critical { background: $priority-critical-bg; }
-    &.medium { background: $priority-medium-bg; }
-    &.low { background: $priority-low-bg; }
+    &.critical { background: #e58d91; }
+    &.medium { background: #eedea6; }
+    &.low { background: #d1d5db; }
   }
 
   .status {
     display: flex;
     align-items: center;
+    gap: 0.35rem;
     font-family: $font-family-base;
-    font-size: 12px;
-    font-weight: $font-weight-bold;
-    font-style: normal;
-    line-height: normal;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #4b5563;
 
-    &.open { color: $status-open-text; }
-    &.in-progress { color: $status-in-progress-text; }
-    &.pending { color: $status-pending-text; }
-    &.resolved { color: $status-resolved-text; }
-    &.closed { color: $color-black; }
+    &.open { color: #4b5563; }
+    &.in-progress { color: #1d4ed8; }
+    &.resolved { color: #166534; }
   }
 }
